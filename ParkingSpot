@@ -1,0 +1,31 @@
+package com.example.parkingsystem.controller;//
+
+public class ParkingSpot {
+    private boolean isOccupied;
+
+    public ParkingSpot() {
+        this.isOccupied = false;
+    }
+
+    public synchronized void occupy() {
+        if (!isOccupied) {
+            isOccupied = true;
+            System.out.println("Parking spot occupied.");
+        } else {
+            System.out.println("Parking spot already occupied.");
+        }
+    }
+//
+    public synchronized void vacate() {
+        if (isOccupied) {
+            isOccupied = false;
+            System.out.println("Parking spot vacated.");
+        } else {
+            System.out.println("Parking spot already vacated.");
+        }
+    }
+
+    public boolean isOccupied() {
+        return isOccupied;
+    }
+}
